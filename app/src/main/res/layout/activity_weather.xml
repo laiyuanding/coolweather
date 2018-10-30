@@ -11,15 +11,17 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
-    <!--<android.support.v4.widget.DrawerLayout-->
-        <!--android:id="@+id/drawer_layout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+    <!--DrawerLayout抽屉,侧滑显示菜单-->
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <!--<android.support.v4.widget.SwipeRefreshLayout-->
-            <!--android:id="@+id/swipe_refresh"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
+    <!--下拉刷新-->
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ScrollView
                 android:id="@+id/weather_layout"
@@ -28,11 +30,15 @@
                 android:scrollbars="none"
                 android:overScrollMode="never">
 
+
+                <!--为系统状态栏留出空间。-->
+                <!--android:fitsSystemWindows="true"-->
+
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
+                    android:fitsSystemWindows="true">
 
                     <include layout="@layout/title" />
 
@@ -48,16 +54,18 @@
 
             </ScrollView>
 
-        <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+        </android.support.v4.widget.SwipeRefreshLayout>
 
-        <!--<fragment-->
-            <!--android:id="@+id/choose_area_fragment"-->
-            <!--android:name="com.coolweather.android.ChooseAreaFragment"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_gravity="start"-->
-            <!--/>-->
 
-    <!--</android.support.v4.widget.DrawerLayout>-->
+        <!--作为左侧侧滑显示菜单的界面-->
+        <fragment
+            android:id="@+id/choose_area_fragment"
+            android:name="com.coolweather.android.ChooseAreaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            />
+
+    </android.support.v4.widget.DrawerLayout>
 
 </FrameLayout>
